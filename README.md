@@ -2,7 +2,7 @@
 - Aguilar Torres Andree Jerson
 - Barra Quispe Kimberly 
 -
--
+- Yto Quispe Jose Carlos
 
 # Descripcion de la temática y funcionalidades de la aplicación
 Nuestro proyecto consiste en una plataforma web para registrar y calificar películas y series vistas por los usuarios, su propósito es permitir llevar un control personal de títulos, organizar comentarios y crear un ranking según las valoraciones dadas.
