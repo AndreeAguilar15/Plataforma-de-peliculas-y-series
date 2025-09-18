@@ -74,15 +74,15 @@
       <form class="row g-3">
         <div class="col-md-6">
           <label class="form-label">Título</label>
-          <input type="text" class="form-control" required>
+          <input type="text" class="form-control" id="titulo-serie" required>
         </div>
         <div class="col-md-6">
           <label class="form-label">Temporadas</label>
-          <input type="number" class="form-control" min="1" required>
+          <input type="number" class="form-control" id="temporadas" id="temporadas-serie" min="1" required>
         </div>
         <div class="col-md-4">
           <label class="form-label">Género</label>
-          <select class="form-select" required>
+          <select class="form-select" id="genero-serie" required>
             <option value="">Selecciona...</option>
             <option>Acción</option><option>Drama</option><option>Comedia</option>
             <option>Terror</option><option>Romance</option><option>Ciencia Ficción</option>
@@ -90,11 +90,11 @@
         </div>
         <div class="col-md-4">
           <label class="form-label">Calificación (1-10)</label>
-          <input type="number" class="form-control" min="1" max="10" required>
+          <input type="number" class="form-control" id="calificacion-serie" min="1" max="10" required>
         </div>
         <div class="col-md-12">
           <label class="form-label">Comentario</label>
-          <textarea class="form-control" rows="3"></textarea>
+          <textarea class="form-control" id="comentario-serie" rows="3"></textarea>
         </div>
         <div class="col-12">
           <button type="submit" class="btn btn-success">
@@ -110,7 +110,7 @@
   <div class="card shadow mb-4">
     <div class="card-body">
       <h2 class="card-title mb-3">Películas Vistas</h2>
-      <table class="table table-striped table-hover">
+      <table class="table table-striped table-hover" id="tabla-peliculas">
         <thead class="table-dark">
           <tr><th>Título</th><th>Género</th><th>Estreno</th><th>Calificación</th><th>Comentario</th></tr>
         </thead>
@@ -124,7 +124,7 @@
   <div class="card shadow mb-4">
     <div class="card-body">
       <h2 class="card-title mb-3">Series Vistas</h2>
-      <table class="table table-striped table-hover">
+      <table class="table table-striped table-hover" id="tabla-series">
         <thead class="table-dark">
           <tr><th>Título</th><th>Temporadas</th><th>Género</th><th>Calificación</th><th>Comentario</th></tr>
         </thead>
@@ -150,7 +150,6 @@
     </div>
   </div>
 </section>
-
 </main>
 
 <footer class="bg-dark text-white text-center p-3">
