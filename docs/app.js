@@ -89,9 +89,9 @@ let ranking = [
 
     tbodySeries.appendChild(tr);
 
-    ranking.push({ titulo, tipo: "Película", calificacion });
+    ranking.push({ titulo, tipo: "Serie", calificacion });
     actualizarRanking();
-    
+
     formSerie.reset();
     showSection("#tablas");
     
