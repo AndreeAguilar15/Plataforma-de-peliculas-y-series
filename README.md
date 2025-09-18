@@ -1,7 +1,7 @@
 # Integrantes:
 - Aguilar Torres Andree Jerson
 - Barra Quispe Kimberly 
--
+- Barreda Condori Dayana Lucia
 - Yto Quispe Jose Carlos
 
 # Descripcion de la temática y funcionalidades de la aplicación
