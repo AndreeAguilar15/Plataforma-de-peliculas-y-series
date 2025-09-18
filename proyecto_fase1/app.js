@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks=document.querySelectorAll("nav .nav-link");
 
   function showSection(id) {
-    sections.forEach(sec => sec.style.display="none");
-    document.querySelector(id).style.display="block";
+    sections.forEach(sec => sec.style.display = "none");
+    document.querySelector(id).style.display = "block";
   }
 
   showSection("#tablas");
@@ -21,20 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const formSerie=document.querySelector("#form-serie form");
   const tbodySeries=document.querySelector("#tablas .table:nth-of-type(2) tbody");
 
-  formPelicula.addEventListener("submit",e => {
+  formPelicula.addEventListener("submit", e => {
     e.preventDefault();
 
     const data=new FormData(formPelicula);
     const titulo=data.get("titulo") || formPelicula.querySelector("input[type=text]").value;
     const genero=data.get("genero") || formPelicula.querySelector("select").value;
     const fecha=formPelicula.querySelector("input[type=date]").value;
-    const calificacion=formPelicula.querySelector("input[type=number]").value;
+    const calificacion=parseInt(formPelicula.querySelector("input[type=number]").value);
     const comentario=formPelicula.querySelector("textarea").value;
-
-    if (!titulo || !genero || !fecha || !calificacion) {
-      alert("Todos los campos obligatorios deben estar completos.");
-      return;
-    }
 
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -44,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <td>${calificacion}</td>
       <td>${comentario}</td>
     `;
-    tr.appendChild(createActions(tr));
 
     tbodyPeliculas.appendChild(tr);
     formPelicula.reset();
@@ -57,13 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const titulo=formSerie.querySelector("input[type=text]").value;
     const temporadas=formSerie.querySelector("input[type=number]").value;
     const genero=formSerie.querySelector("select").value;
-    const calificacion=formSerie.querySelectorAll("input[type=number]")[1].value;
+    const calificacion=parseInt(formSerie.querySelectorAll("input[type=number]")[1].value);
     const comentario=formSerie.querySelector("textarea").value;
-
-    if (!titulo || !temporadas || !genero || !calificacion) {
-      alert("Todos los campos obligatorios deben estar completos.");
-      return;
-    }
 
     const tr=document.createElement("tr");
     tr.innerHTML=`
@@ -73,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <td>${calificacion}</td>
       <td>${comentario}</td>
     `;
-    tr.appendChild(createActions(tr));
 
     tbodySeries.appendChild(tr);
     formSerie.reset();
