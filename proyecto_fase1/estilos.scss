@@ -1,0 +1,107 @@
+// VARIABLES
+$color-primario: #0d6efd;
+$color-secundario: #198754;
+$color-fondo: #f8f9fa;
+$color-texto: #212529;
+$fuente-general: 'Arial', sans-serif;
+
+// MIXIN para botones responsivos
+@mixin boton-responsivo($bg, $color) {
+  background-color: $bg;
+  color: $color;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darken($bg, 10%);
+  }
+}
+
+// LAYOUT PRINCIPAL con CSS Grid
+body {
+  font-family: $fuente-general;
+  background-color: $color-fondo;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto; // header, main, footer
+  min-height: 100vh;
+}
+
+// NAVBAR
+.navbar {
+  background: linear-gradient(90deg, $color-primario, $color-secundario);
+}
+
+// TARJETAS
+.card {
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+// TABLAS
+.table {
+  th {
+    background-color: $color-primario !important;
+    color: white;
+  }
+
+  tbody tr:hover {
+    background-color: lighten($color-primario, 40%);
+  }
+}
+
+// BOTONES personalizados con mixin
+.btn-primary {
+  @include boton-responsivo($color-primario, white);
+}
+
+.btn-success {
+  @include boton-responsivo($color-secundario, white);
+}
+
+// SECCIONES (Flexbox)
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+// TITULOS
+h2 {
+  color: $color-texto;
+  font-weight: bold;
+  text-align: center;
+}
+
+// FORMULARIOS (anidación)
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .form-control, 
+  .form-select {
+    border-radius: 8px;
+    border: 2px solid lighten($color-primario, 30%);
+  }
+}
+
+// FOOTER
+footer {
+  background-color: $color-primario;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+// RESPONSIVE
+@media (max-width: 768px) {
+  .card-body {
+    padding: 1rem;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+}
