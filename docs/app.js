@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const tbodyRanking = document.querySelector("#tablas .table-bordered tbody");
 
 let ranking = [
-  { titulo: "The Walking Dead", tipo: "Serie", calificacion: 9 },
-  { titulo: "La sociedad de la nieve", tipo: "Película", calificacion: 9 }
+  { titulo: "Kimetsu no Yaiba", tipo: "Pelicula", calificacion: 10 },
+  { titulo: "The Last of Us", tipo: "Serie", calificacion: 9 }
 ];
 
   function actualizarRanking() {
