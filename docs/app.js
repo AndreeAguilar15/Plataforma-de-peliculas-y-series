@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <td>${calificacion}</td>
       <td>${comentario}</td>
     `;
-    tr.appendChild(createActions(tr));
 
     tbodyPeliculas.appendChild(tr);
     formPelicula.reset();
@@ -73,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <td>${calificacion}</td>
       <td>${comentario}</td>
     `;
-    tr.appendChild(createActions(tr));
 
     tbodySeries.appendChild(tr);
     formSerie.reset();
