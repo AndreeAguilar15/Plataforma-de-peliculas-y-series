@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const sections=document.querySelectorAll("main section");
-  const navLinks=document.querySelectorAll("nav .nav-link");
+  const sections = document.querySelectorAll("main section");
+  const navLinks = document.querySelectorAll("nav .nav-link");
 
   function showSection(id) {
     sections.forEach(sec => sec.style.display = "none");
@@ -9,27 +9,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showSection("#tablas");
   navLinks.forEach(link => {
-    link.addEventListener("click",e=>{
+    link.addEventListener("click", e => {
       e.preventDefault();
       showSection(link.getAttribute("href"));
     });
   });
 
-  const formPelicula=document.querySelector("#form-pelicula form");
-  const tbodyPeliculas=document.querySelector("#tablas .table:nth-of-type(1) tbody");
+  const formPelicula = document.querySelector("#form-pelicula form");
+  const tbodyPeliculas = document.querySelector("#tabla-peliculas tbody");
 
-  const formSerie=document.querySelector("#form-serie form");
-  const tbodySeries=document.querySelector("#tablas .table:nth-of-type(2) tbody");
+  const formSerie = document.querySelector("#form-serie form");
+  const tbodySeries = document.querySelector("#tabla-series tbody");
+
+  const tbodyRanking = document.querySelector("#tablas .table-bordered tbody");
+
+let ranking = [
+  { titulo: "The Walking Dead", tipo: "Serie", calificacion: 9 },
+  { titulo: "La sociedad de la nieve", tipo: "Película", calificacion: 9 }
+];
+
+  function actualizarRanking() {
+    ranking.sort((a, b) => b.calificacion-a.calificacion);
+    tbodyRanking.innerHTML = "";
+    ranking.forEach((item, index) => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${item.titulo}</td>
+        <td>${item.tipo}</td>
+        <td>${item.calificacion}</td>
+      `;
+      tbodyRanking.appendChild(tr);
+    });
+  }
 
   formPelicula.addEventListener("submit", e => {
     e.preventDefault();
 
-    const data=new FormData(formPelicula);
-    const titulo=data.get("titulo") || formPelicula.querySelector("input[type=text]").value;
-    const genero=data.get("genero") || formPelicula.querySelector("select").value;
-    const fecha=formPelicula.querySelector("input[type=date]").value;
-    const calificacion=parseInt(formPelicula.querySelector("input[type=number]").value);
-    const comentario=formPelicula.querySelector("textarea").value;
+    const titulo = formPelicula.querySelector("input[type=text]").value;
+    const genero = formPelicula.querySelector("select").value;
+    const fecha = formPelicula.querySelector("input[type=date]").value;
+    const calificacion = parseInt(formPelicula.querySelector("input[type=number]").value);
+    const comentario = formPelicula.querySelector("textarea").value;
 
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -39,8 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
       <td>${calificacion}</td>
       <td>${comentario}</td>
     `;
-
     tbodyPeliculas.appendChild(tr);
+
+    ranking.push({ titulo, tipo: "Película", calificacion });
+    actualizarRanking();
+
     formPelicula.reset();
     showSection("#tablas");
   });
@@ -64,8 +88,13 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     tbodySeries.appendChild(tr);
+
+    ranking.push({ titulo, tipo: "Película", calificacion });
+    actualizarRanking();
+    
     formSerie.reset();
     showSection("#tablas");
+    
   });
 });
 
