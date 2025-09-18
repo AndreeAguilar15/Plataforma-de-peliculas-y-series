@@ -1,0 +1,27 @@
+// Variables
+$color-primario: #0d6efd;
+$color-secundario: #198754;
+
+// Mixin
+@mixin boton($bg) {
+  background-color: $bg;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+body {
+  background: linear-gradient(135deg, $color-primario, $color-secundario);
+
+  h1 {
+    color: white;
+  }
+}
+
+.btn-primary {
+  @include boton($color-primario);
+}
+
+.btn-success {
+  @include boton($color-secundario);
+}
