@@ -20,4 +20,5 @@ Ranking personal: ordena los títulos según su calificación.
 Diseño responsivo: gracias a Bootstrap, la aplicación se adapta a computadoras, tablets y móviles. 
 
 
+
 Para el despliegue, utilizamos GitHub Pages por su facilidad de uso y su integración directa con el repositorio.
